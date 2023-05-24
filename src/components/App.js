@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import '../App.css';
 import AppRouter from './AppRouter';
+import { authService } from '../fbase';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
 
   return (
     <div className='App'>
