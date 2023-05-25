@@ -53,14 +53,8 @@ export default function Auth() {
       provider = new GithubAuthProvider();
     }
 
-    // const data = await signInWithPopup(auth, provider);
-    // console.log(data);
-
-    if (provider) {
-      const data = await signInWithPopup(auth, provider);
-      console.log(data);
-      console.log(name);
-    }
+    const data = await signInWithPopup(auth, provider);
+    console.log(data);
   };
 
   return (

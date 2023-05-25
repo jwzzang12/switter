@@ -18,9 +18,6 @@ function App() {
       console.log(user);
     });
   }, []);
-  // setInterval(() => {
-  //   console.log(auth.currentUser);
-  // }, 2000);
 
   return (
     <div className='App'>
