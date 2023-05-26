@@ -1,18 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { firestore } from '../fbase';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 
-export default function Home() {
-  const [sweet, setSweet] = useState();
+export default function Home({ userObj }) {
+  const [sweet, setSweet] = useState('');
+  const [sweets, setSweets] = useState([]);
+
+  const getSweets = async () => {
+    const dbSweets = await getDocs(collection(firestore, 'sweets'));
+    dbSweets.forEach((doc) => {
+      const sweetObj = {
+        ...doc.data(),
+        id: doc.id,
+      };
+      setSweets((prev) => [sweetObj, ...prev]);
+    });
+  };
+
+  useEffect(() => {
+    getSweets();
+  }, []);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      const docRef = await addDoc(collection(firestore, 'sweets'), {
-        sweet,
+      await addDoc(collection(firestore, 'sweets'), {
+        text: sweet,
         createdAt: Date.now(),
+        creatorId: userObj.uid,
       });
-      console.log('Document written with ID: ', docRef.id);
     } catch (error) {
       console.error('Error adding document: ', error);
     }
@@ -32,6 +48,15 @@ export default function Home() {
         <input value={sweet} onChange={onChange} type='text' placeholder="What's happening?" maxLength={140} />
         <input type='submit' value='Sweet' />
       </form>
+      <div>
+        {sweets.map((item) => {
+          return (
+            <div key={item.id}>
+              <h4>{item.text}</h4>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
