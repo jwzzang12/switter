@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { firestore } from '../fbase';
 import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import Sweet from '../components/Sweet';
 
 export default function Home({ userObj }) {
   const [sweet, setSweet] = useState('');
@@ -58,11 +59,7 @@ export default function Home({ userObj }) {
       </form>
       <div>
         {sweets.map((item) => {
-          return (
-            <div key={item.id}>
-              <h4>{item.text}</h4>
-            </div>
-          );
+          return <Sweet key={item.id} sweetObj={item} isOwner={item.creatorId === userObj.uid} />;
         })}
       </div>
     </div>
