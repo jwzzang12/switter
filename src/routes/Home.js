@@ -7,19 +7,7 @@ export default function Home({ userObj }) {
   const [sweet, setSweet] = useState('');
   const [sweets, setSweets] = useState([]);
 
-  // const getSweets = async () => {
-  //   const dbSweets = await getDocs(collection(firestore, 'sweets'));
-  //   dbSweets.forEach((doc) => {
-  //     const sweetObj = {
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     };
-  //   });
-  // };
-
   useEffect(() => {
-    // getSweets();
-    //real-time
     const q = collection(firestore, 'sweets');
     onSnapshot(q, (snapshot) => {
       const sweetArr = snapshot.docs.map((item) => ({

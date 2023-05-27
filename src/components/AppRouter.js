@@ -5,7 +5,6 @@ import Navigation from './Navigation';
 import Profile from '../routes/Profile';
 
 export default function AppRouter({ isLoggedIn, userObj }) {
-  console.log(isLoggedIn);
   return (
     <Router>
       {isLoggedIn && <Navigation />}
