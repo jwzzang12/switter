@@ -68,7 +68,10 @@ export default function Home({ userObj }) {
       } = finishedEvent;
       setImage(result);
     };
-    reader.readAsDataURL(imgFile);
+
+    if (imgFile) {
+      reader.readAsDataURL(imgFile);
+    }
   };
 
   const onClearImage = () => {
