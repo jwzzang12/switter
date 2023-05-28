@@ -26,9 +26,10 @@ export default function Home({ userObj }) {
     let imgUrl = '';
 
     try {
-      const imgRef = ref(storage, `${userObj.uid}/${uuidv4()}`);
-      const response = await uploadString(imgRef, image, 'data_url');
-      if (imgRef !== '') {
+      if (image !== '') {
+        const imgRef = ref(storage, `${userObj.uid}/${uuidv4()}`);
+        const response = await uploadString(imgRef, image, 'data_url');
+
         imgUrl = await getDownloadURL(response.ref);
       }
 
@@ -71,7 +72,7 @@ export default function Home({ userObj }) {
   };
 
   const onClearImage = () => {
-    setImage(null);
+    setImage('');
   };
 
   return (
