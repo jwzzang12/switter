@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { firestore, storage } from '../fbase';
-import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import Sweet from '../components/Sweet';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,7 +11,9 @@ export default function Home({ userObj }) {
   const [image, setImage] = useState('');
 
   useEffect(() => {
-    const q = collection(firestore, 'sweets');
+    //descending order
+    const q = query(collection(firestore, 'sweets'), orderBy('createdAt', 'desc'));
+
     onSnapshot(q, (snapshot) => {
       const sweetArr = snapshot.docs.map((item) => ({
         id: item.id,
