@@ -6,7 +6,7 @@ export default function AuthForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [newAccount, setNewAccount] = useState(true);
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
 
   const onChange = (event) => {
     const {
@@ -33,8 +33,7 @@ export default function AuthForm() {
       }
       console.log(data);
     } catch (error) {
-      console.log(error);
-      setError(error.message);
+      console.log(error.message);
     }
   };
 
@@ -42,13 +41,17 @@ export default function AuthForm() {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className='emailAuth'>
         <input name='email' type='text' placeholder='Email' required onChange={onChange} />
         <input name='password' type='password' placeholder='Password' required onChange={onChange} />
-        <input type='submit' value={newAccount ? 'Sign Up' : 'Sign In'} />
-        {error.replace(/Firebase: /g, '')}
+        <input type='submit' value={newAccount ? 'Sign Up' : 'Sign In'} className='authBtn sign' />
       </form>
-      <span onClick={toggleAccount}>{newAccount ? 'Sign In' : 'Sign Up'}</span>
+      <div>
+        <span>{newAccount ? 'Already have an account?' : "Don't have an account?"}</span>
+        <span onClick={toggleAccount} className='color'>
+          {newAccount ? 'Sign In' : 'Sign Up'}
+        </span>
+      </div>
     </>
   );
 }

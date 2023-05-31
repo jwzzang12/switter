@@ -21,7 +21,8 @@ export default function Home({ userObj }) {
   }, []);
 
   return (
-    <div>
+    <div id='home'>
+      <h2 className='titleBox'>Home</h2>
       <SweetFactory userObj={userObj} />
       <div>
         {sweets.map((item) => {

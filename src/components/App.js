@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import AppRouter from './AppRouter';
 import { auth } from '../fbase';
 import { onAuthStateChanged, updateProfile } from 'firebase/auth';
+import '../css/styles.min.css';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -36,7 +37,7 @@ function App() {
     <div className='App'>
       <>
         {init ? <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} updateUser={updateUser} /> : 'Initializing...'}
-        <footer>&copy; Switter {new Date().getFullYear()}</footer>
+        <footer id='footer'>&copy; Switter {new Date().getFullYear()}</footer>
       </>
     </div>
   );

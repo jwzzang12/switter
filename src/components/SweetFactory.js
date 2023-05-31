@@ -64,16 +64,23 @@ export default function SweetFactory({ userObj }) {
     setImage('');
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input value={sweet} onChange={onChange} type='text' placeholder="What's happening?" maxLength={140} />
-      <input type='file' accept='image/*' onChange={onFileChange} />
-      <input type='submit' value='Sweet' />
-      {image && (
-        <div>
-          <img src={image} alt='' width='50px' height='50px' />
-          <button onClick={onClearImage}>X</button>
-        </div>
-      )}
-    </form>
+    <div className='sweetFactory'>
+      <form onSubmit={onSubmit}>
+        <input value={sweet} onChange={onChange} type='text' placeholder="What's happening?" maxLength={140} id='uploadSweet' />
+        {image && (
+          <div className='preview'>
+            <img src={image} alt='' width='100px' height='100px' />
+            <button onClick={onClearImage} className='clearBtn'>
+              <span class='material-icons-outlined'>clear</span>
+            </button>
+          </div>
+        )}
+        <input type='file' accept='image/*' onChange={onFileChange} id='uploadImage' />
+        <label for='uploadImage'>
+          <span class='material-icons-outlined'>image</span>
+        </label>
+        <input type='submit' value='Sweet' className='sweetBtn' />
+      </form>
+    </div>
   );
 }

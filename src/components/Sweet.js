@@ -19,10 +19,14 @@ export default function Sweet({ sweetObj, isOwner }) {
   };
 
   return (
-    <div>
-      <h4>{sweetObj.text}</h4>
-      {sweetObj.imgUrl && <img src={sweetObj.imgUrl} width='50px' height='50px'></img>}
-      {isOwner && <button onClick={onDeleteClick}>Delete</button>}
+    <div className='sweetBox'>
+      <div>{sweetObj.text}</div>
+      {sweetObj.imgUrl && <img src={sweetObj.imgUrl} width='100px' height='100px'></img>}
+      {isOwner && (
+        <button onClick={onDeleteClick} className='deleteBtn'>
+          <span className='material-icons-outlined'>delete</span>
+        </button>
+      )}
     </div>
   );
 }

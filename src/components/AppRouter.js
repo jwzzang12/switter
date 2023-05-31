@@ -7,17 +7,19 @@ import Profile from '../routes/Profile';
 export default function AppRouter({ isLoggedIn, userObj, updateUser }) {
   return (
     <Router>
-      {isLoggedIn && <Navigation userObj={userObj} />}
-      <Routes>
-        {isLoggedIn ? (
-          <>
-            <Route path='/' element={<Home userObj={userObj} />}></Route>
-            <Route path='/profile' element={<Profile userObj={userObj} updateUser={updateUser} />}></Route>
-          </>
-        ) : (
-          <Route path='/' element={<Auth />}></Route>
-        )}
-      </Routes>
+      <div className='container'>
+        {isLoggedIn && <Navigation userObj={userObj} />}
+        <Routes>
+          {isLoggedIn ? (
+            <>
+              <Route path='/' element={<Home userObj={userObj} />}></Route>
+              <Route path='/profile' element={<Profile userObj={userObj} updateUser={updateUser} />}></Route>
+            </>
+          ) : (
+            <Route path='/' element={<Auth />}></Route>
+          )}
+        </Routes>
+      </div>
     </Router>
   );
 }

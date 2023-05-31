@@ -6,6 +6,7 @@ import { updateProfile } from 'firebase/auth';
 
 export default function Profile({ userObj, updateUser }) {
   const [userName, setUserName] = useState(userObj.displayName || 'User');
+  const [edit, setEdit] = useState(true);
   const navigate = useNavigate();
 
   const onSignOutClick = () => {
@@ -43,13 +44,27 @@ export default function Profile({ userObj, updateUser }) {
     }
   };
 
+  const onEditClick = () => {
+    setEdit((prev) => !prev);
+  };
+
   return (
-    <>
+    <div id='profile'>
+      <h2 className='titleBox'>Profile</h2>
+      <button onClick={onSignOutClick} className='signoutBtn'>
+        Sign Out
+      </button>
       <form onSubmit={onSubmit}>
-        <input type='text' placeholder='Name' onChange={onChange} value={userName} />
-        <input type='submit' value='Update Profile' />
+        <div className='userName'>
+          <span>User Name</span>
+          <input type='text' placeholder='Name' onChange={onChange} value={userName} disabled={edit} />
+        </div>
+        {edit ? (
+          <input type='text' value='Edit Profile' className='btn' onClick={onEditClick} />
+        ) : (
+          <input type='submit' value='Update Profile' className='btn update' onClick={onEditClick} />
+        )}
       </form>
-      <button onClick={onSignOutClick}>Sign Out</button>
-    </>
+    </div>
   );
 }
