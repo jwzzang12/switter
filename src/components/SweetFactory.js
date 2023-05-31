@@ -66,7 +66,7 @@ export default function SweetFactory({ userObj }) {
   return (
     <div className='sweetFactory'>
       <form onSubmit={onSubmit}>
-        <input value={sweet} onChange={onChange} type='text' placeholder="What's happening?" maxLength={140} id='uploadSweet' />
+        <textarea value={sweet} onChange={onChange} placeholder="What's happening?" maxLength={140} resize='none' id='uploadSweet' />
         {image && (
           <div className='preview'>
             <img src={image} alt='' width='100px' height='100px' />

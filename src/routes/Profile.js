@@ -50,21 +50,17 @@ export default function Profile({ userObj, updateUser }) {
 
   return (
     <div id='profile'>
-      <h2 className='titleBox'>Profile</h2>
-      <button onClick={onSignOutClick} className='signoutBtn'>
-        Sign Out
-      </button>
       <form onSubmit={onSubmit}>
-        <div className='userName'>
-          <span>User Name</span>
-          <input type='text' placeholder='Name' onChange={onChange} value={userName} disabled={edit} />
-        </div>
+        <input type='text' placeholder='Name' onChange={onChange} value={userName} disabled={edit} className='btn white' />
         {edit ? (
-          <input type='text' value='Edit Profile' className='btn' onClick={onEditClick} />
+          <input type='text' value='Edit Profile' className='btn outlined' onClick={onEditClick} />
         ) : (
-          <input type='submit' value='Update Profile' className='btn update' onClick={onEditClick} />
+          <input type='submit' value='Update Profile' className='btn orange' onClick={onEditClick} />
         )}
       </form>
+      <button onClick={onSignOutClick} className='btn grey'>
+        Sign Out
+      </button>
     </div>
   );
 }

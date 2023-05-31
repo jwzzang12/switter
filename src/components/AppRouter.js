@@ -19,6 +19,7 @@ export default function AppRouter({ isLoggedIn, userObj, updateUser }) {
             <Route path='/' element={<Auth />}></Route>
           )}
         </Routes>
+        <footer id='footer'>&copy; Switter {new Date().getFullYear()}</footer>
       </div>
     </Router>
   );

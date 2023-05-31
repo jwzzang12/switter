@@ -35,10 +35,7 @@ function App() {
 
   return (
     <div className='App'>
-      <>
-        {init ? <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} updateUser={updateUser} /> : 'Initializing...'}
-        <footer id='footer'>&copy; Switter {new Date().getFullYear()}</footer>
-      </>
+      <>{init ? <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} updateUser={updateUser} /> : 'Initializing...'}</>
     </div>
   );
 }

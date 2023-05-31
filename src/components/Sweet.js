@@ -20,7 +20,7 @@ export default function Sweet({ sweetObj, isOwner }) {
 
   return (
     <div className='sweetBox'>
-      <div>{sweetObj.text}</div>
+      <div className='text'>{sweetObj.text}</div>
       {sweetObj.imgUrl && <img src={sweetObj.imgUrl} width='100px' height='100px'></img>}
       {isOwner && (
         <button onClick={onDeleteClick} className='deleteBtn'>

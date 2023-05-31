@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../fbase';
 
-export default function AuthForm() {
+export default function AuthForm({ newAccount, onToggleClick }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [newAccount, setNewAccount] = useState(true);
+
   // const [error, setError] = useState('');
 
   const onChange = (event) => {
@@ -37,18 +37,17 @@ export default function AuthForm() {
     }
   };
 
-  const toggleAccount = () => setNewAccount((prev) => !prev);
-
   return (
     <>
+      <div className='or'>or</div>
       <form onSubmit={onSubmit} className='emailAuth'>
         <input name='email' type='text' placeholder='Email' required onChange={onChange} />
         <input name='password' type='password' placeholder='Password' required onChange={onChange} />
-        <input type='submit' value={newAccount ? 'Sign Up' : 'Sign In'} className='authBtn sign' />
+        <input type='submit' value={newAccount ? 'Sign Up' : 'Sign In'} className='btn orange' />
       </form>
       <div>
         <span>{newAccount ? 'Already have an account?' : "Don't have an account?"}</span>
-        <span onClick={toggleAccount} className='color'>
+        <span onClick={onToggleClick} className='color'>
           {newAccount ? 'Sign In' : 'Sign Up'}
         </span>
       </div>

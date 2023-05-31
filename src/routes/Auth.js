@@ -4,7 +4,7 @@ import AuthForm from '../components/AuthForm';
 import { useState } from 'react';
 
 export default function Auth() {
-  const [emailAuth, setEmailAuth] = useState(false);
+  const [newAccount, setNewAccount] = useState(true);
 
   const onSocialClick = async (event) => {
     const {
@@ -23,26 +23,18 @@ export default function Auth() {
     console.log(data);
   };
 
-  const onEmailClick = () => {
-    console.log(emailAuth);
-    setEmailAuth((prev) => !prev);
-  };
+  const toggleAccount = () => setNewAccount((prev) => !prev);
+
   return (
     <div id='auth' className='container'>
-      <div className='txtBox'>New to Switter?</div>
-      <button onClick={onSocialClick} name='google' className='authBtn'>
+      {newAccount ? <div className='txtBox'>New to Switter?</div> : <div className='txtBox'>Hi, there!</div>}
+      <button onClick={onSocialClick} name='google' className='btn white'>
         Continue with Google
       </button>
-      <button onClick={onSocialClick} name='github' className='authBtn'>
+      <button onClick={onSocialClick} name='github' className='btn white'>
         Continue with Github
       </button>
-      {emailAuth ? (
-        <AuthForm />
-      ) : (
-        <button onClick={onEmailClick} name='email' className='authBtn'>
-          Continue with Email
-        </button>
-      )}
+      <AuthForm newAccount={newAccount} onToggleClick={toggleAccount} />
     </div>
   );
 }
