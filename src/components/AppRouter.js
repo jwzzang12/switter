@@ -6,7 +6,7 @@ import Profile from '../routes/Profile';
 
 export default function AppRouter({ isLoggedIn, userObj, updateUser }) {
   return (
-    <Router>
+    <Router basename='/'>
       <div className='container'>
         {isLoggedIn && <Navigation userObj={userObj} />}
         <Routes>

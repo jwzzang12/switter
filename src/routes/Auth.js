@@ -2,6 +2,8 @@ import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebas
 import { auth } from '../fbase';
 import AuthForm from '../components/AuthForm';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function Auth() {
   const [newAccount, setNewAccount] = useState(true);
@@ -29,10 +31,10 @@ export default function Auth() {
     <div id='auth' className='container'>
       {newAccount ? <div className='txtBox'>New to Switter?</div> : <div className='txtBox'>Hi, there!</div>}
       <button onClick={onSocialClick} name='google' className='btn white'>
-        Continue with Google
+        Continue with Google <FontAwesomeIcon icon={faGoogle} />
       </button>
       <button onClick={onSocialClick} name='github' className='btn white'>
-        Continue with Github
+        Continue with Github <FontAwesomeIcon icon={faGithub} />
       </button>
       <AuthForm newAccount={newAccount} onToggleClick={toggleAccount} />
     </div>
