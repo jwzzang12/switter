@@ -6,12 +6,12 @@ export default function Navigation({ userObj }) {
       <ul className='menu'>
         <li>
           <NavLink to='/'>
-            <span class='material-icons-round'>home</span>
+            <span className='material-icons-round'>home</span>
           </NavLink>
         </li>
         <li>
           <NavLink to='/profile'>
-            <span class='material-icons-round'>account_circle</span>
+            <span className='material-icons-round'>account_circle</span>
           </NavLink>
         </li>
       </ul>

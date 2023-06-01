@@ -3,6 +3,7 @@ import { firestore, storage } from '../fbase';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export default function SweetFactory({ userObj }) {
   const [sweet, setSweet] = useState('');
@@ -63,21 +64,31 @@ export default function SweetFactory({ userObj }) {
   const onClearImage = () => {
     setImage('');
   };
+
   return (
     <div className='sweetFactory'>
       <form onSubmit={onSubmit}>
-        <textarea value={sweet} onChange={onChange} placeholder="What's happening?" maxLength={140} resize='none' id='uploadSweet' />
+        <TextareaAutosize
+          value={sweet}
+          onChange={onChange}
+          placeholder="What's happening?"
+          maxLength={140}
+          resize='none'
+          id='uploadSweet'
+          wrap='hard'
+          required
+        />
         {image && (
           <div className='preview'>
             <img src={image} alt='' width='100px' height='100px' />
             <button onClick={onClearImage} className='clearBtn'>
-              <span class='material-icons-outlined'>clear</span>
+              <span className='material-icons-outlined'>clear</span>
             </button>
           </div>
         )}
         <input type='file' accept='image/*' onChange={onFileChange} id='uploadImage' />
-        <label for='uploadImage'>
-          <span class='material-icons-outlined'>image</span>
+        <label htmlFor='uploadImage'>
+          <span className='material-icons-outlined'>image</span>
         </label>
         <input type='submit' value='Sweet' className='sweetBtn' />
       </form>

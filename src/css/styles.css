@@ -25,10 +25,11 @@ li {
 
 input {
   all: unset;
-  width: 250px;
+  width: 50vw;
   margin-bottom: 0.5rem;
   padding: 1rem;
   border: 1px solid #555;
+  max-width: 250px;
   box-sizing: border-box;
   border-radius: 5px;
   cursor: text;
@@ -45,9 +46,10 @@ button {
 }
 
 .btn {
-  width: 250px;
+  width: 50vw;
   margin-bottom: 1rem;
   padding: 0.5rem 0;
+  max-width: 250px;
   border-radius: 30px;
   text-align: center;
   cursor: pointer;
@@ -82,6 +84,7 @@ button {
   align-items: center;
   flex-direction: column;
   position: relative;
+  padding: 0 1rem;
   min-height: 100vh;
 }
 
@@ -99,6 +102,7 @@ button {
 }
 .menu .material-icons-round {
   font-size: 3rem;
+  cursor: pointer;
 }
 .menu li:first-child {
   margin-right: 3rem;
@@ -110,6 +114,7 @@ button {
 #home {
   width: 100%;
   max-width: 500px;
+  position: relative;
 }
 #home .sweetFactory {
   margin-bottom: 2rem;
@@ -119,26 +124,19 @@ button {
 #home .sweetFactory form {
   position: relative;
   padding: 1rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 4.5rem;
   border: 1px solid #555;
   border-radius: 5px;
-  min-height: 100px;
-}
-#home .sweetFactory form textarea {
-  width: 100%;
-}
-#home .sweetFactory form #uploadImage {
-  display: none;
 }
 #home .sweetFactory form label {
   position: absolute;
   bottom: 0.5rem;
   left: 1rem;
-  cursor: pointer;
 }
 #home .sweetFactory form label .material-icons-outlined {
   font-size: 2rem;
   color: #f26e1d;
+  cursor: pointer;
 }
 #home .sweetFactory form .sweetBtn {
   width: 75px;
@@ -167,16 +165,21 @@ button {
   right: 1rem;
   background-color: rgba(255, 255, 255, 0.3254901961);
   border-radius: 100%;
-  cursor: pointer;
 }
 #home .preview .material-icons-outlined {
   font-size: 20px;
+  cursor: pointer;
 }
 #home .sweetBox {
   position: relative;
-  padding: 1rem 1.5rem 1rem 1rem;
+  padding: 1rem 2.5rem 1rem 1rem;
   border: 1px solid #fff;
   border-radius: 5px;
+}
+#home .sweetBox .text {
+  width: 100%;
+  max-width: 500px;
+  word-wrap: break-word;
 }
 #home .sweetBox:not(:last-child) {
   margin-bottom: 1rem;
@@ -185,7 +188,20 @@ button {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
+}
+#home .sweetBox .deleteBtn .material-icons-outlined {
   cursor: pointer;
+}
+
+#uploadSweet {
+  width: 100%;
+  word-wrap: break-word;
+  min-height: 4rem;
+  overflow: hidden;
+}
+
+#uploadImage {
+  display: none;
 }
 
 #profile {
