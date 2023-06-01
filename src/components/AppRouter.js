@@ -6,7 +6,7 @@ import Profile from '../routes/Profile';
 
 export default function AppRouter({ isLoggedIn, userObj, updateUser }) {
   return (
-    <Router basename='/'>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className='container'>
         {isLoggedIn && <Navigation userObj={userObj} />}
         <Routes>
