@@ -80,7 +80,7 @@ export default function SweetFactory({ userObj }) {
         />
         {image && (
           <div className='preview'>
-            <img src={image} alt='' width='100px' height='100px' />
+            <img src={image} alt='' />
             <button onClick={onClearImage} className='clearBtn'>
               <span className='material-icons-outlined'>clear</span>
             </button>

@@ -117,8 +117,8 @@ button {
 
 #home {
   width: 100%;
-  max-width: 500px;
   position: relative;
+  max-width: 500px;
   .sweetFactory {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
@@ -157,6 +157,12 @@ button {
   .preview {
     position: relative;
     padding: 0 0.5rem;
+    img {
+      width: 100%;
+      border-radius: 5px;
+      max-height: 50vh;
+      object-fit: cover;
+    }
     .clearBtn {
       display: flex;
       justify-content: center;
@@ -164,9 +170,9 @@ button {
       width: 25px;
       height: 25px;
       position: absolute;
-      top: 1rem;
+      top: 0.5rem;
       right: 1rem;
-      background-color: #ffffff53;
+      background-color: #000000ae;
       border-radius: 100%;
     }
     .material-icons-outlined {
@@ -185,6 +191,13 @@ button {
       max-width: 500px;
       word-wrap: break-word;
     }
+    img {
+      width: 100%;
+      margin-top: 1rem;
+      border-radius: 5px;
+      max-height: 50vh;
+      object-fit: cover;
+    }
     &:not(:last-child) {
       margin-bottom: 1rem;
     }
@@ -200,9 +213,9 @@ button {
 }
 #uploadSweet {
   width: 100%;
+  overflow: hidden;
   word-wrap: break-word;
   min-height: 4rem;
-  overflow: hidden;
 }
 #uploadImage {
   display: none;
