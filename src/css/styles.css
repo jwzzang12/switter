@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   text-align: left;
+  cursor: default;
 }
 
 body {
@@ -30,11 +31,13 @@ input {
   border: 1px solid #555;
   box-sizing: border-box;
   border-radius: 5px;
+  cursor: text;
 }
 
 textarea {
   all: unset;
   box-sizing: border-box;
+  cursor: text;
 }
 
 button {
@@ -47,6 +50,7 @@ button {
   padding: 0.5rem 0;
   border-radius: 30px;
   text-align: center;
+  cursor: pointer;
 }
 .btn.white {
   color: #000;
@@ -70,6 +74,7 @@ button {
 .color {
   padding-left: 0.5rem;
   color: #f26e1d;
+  cursor: pointer;
 }
 
 .container {
@@ -97,6 +102,9 @@ button {
 }
 .menu li:first-child {
   margin-right: 3rem;
+}
+.menu .active {
+  color: #f26e1d;
 }
 
 #home {
@@ -126,6 +134,7 @@ button {
   position: absolute;
   bottom: 0.5rem;
   left: 1rem;
+  cursor: pointer;
 }
 #home .sweetFactory form label .material-icons-outlined {
   font-size: 2rem;
@@ -141,6 +150,7 @@ button {
   border-radius: 30px;
   text-align: center;
   background-color: #f26e1d;
+  cursor: pointer;
 }
 #home .preview {
   position: relative;
@@ -157,6 +167,7 @@ button {
   right: 1rem;
   background-color: rgba(255, 255, 255, 0.3254901961);
   border-radius: 100%;
+  cursor: pointer;
 }
 #home .preview .material-icons-outlined {
   font-size: 20px;
@@ -174,6 +185,7 @@ button {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
+  cursor: pointer;
 }
 
 #profile {
@@ -196,12 +208,14 @@ button {
 #profile form span {
   padding-right: 2rem;
 }
-#profile form input {
+#profile form input[type=text] {
   font-weight: 700;
+  cursor: text;
 }
 #profile form input[type=text][disabled] {
   border: 1px solid #fff;
   background: #999;
+  cursor: default;
 }
 
 #auth {

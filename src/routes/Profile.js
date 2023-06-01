@@ -53,7 +53,7 @@ export default function Profile({ userObj, updateUser }) {
       <form onSubmit={onSubmit}>
         <input type='text' placeholder='Name' onChange={onChange} value={userName} disabled={edit} className='btn white' />
         {edit ? (
-          <input type='text' value='Edit Profile' className='btn outlined' onClick={onEditClick} />
+          <input type='submit' value='Edit Profile' className='btn outlined' onClick={onEditClick} />
         ) : (
           <input type='submit' value='Update Profile' className='btn orange' onClick={onEditClick} />
         )}

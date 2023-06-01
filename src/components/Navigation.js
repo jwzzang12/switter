@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Navigation({ userObj }) {
   return (
     <nav>
       <ul className='menu'>
         <li>
-          <Link to='/'>
+          <NavLink to='/'>
             <span class='material-icons-round'>home</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to='/profile'>
+          <NavLink to='/profile'>
             <span class='material-icons-round'>account_circle</span>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>
